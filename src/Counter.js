@@ -1,11 +1,12 @@
 import React, { useState } from "react";
+import OddEvenResult from "./OddEvenResult";
 
-const Counter = () => {
+const Counter = ({ initialValue }) => {
   // 0에서 출발
   // 1씩 증가하고
   // 1씩 감소하는 count 상태
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(initialValue);
 
   const onIncrease = () => {
     setCount(count + 1);
@@ -20,8 +21,13 @@ const Counter = () => {
       <h2>{count}</h2>
       <button onClick={onIncrease}>+</button>
       <button onClick={onDecrease}>-</button>
+      <OddEvenResult />
     </div>
   );
+};
+
+Counter.defaultProps = {
+  initialValue: 0,
 };
 
 export default Counter;
